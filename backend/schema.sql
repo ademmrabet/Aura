@@ -25,19 +25,10 @@ CREATE TABLE IF NOT EXISTS sessions(
     FOREIGN KEY (user_id) REFERENCES user(id)
 );
 
-CREATE TABLE IF NOT EXISTS types(
-    id INT AUTO_INCREMENT,
-    type_name VARCHAR(250) NOT NULL,
-    type_description VARCHAR(250) NOT NULL,
-    PRIMARY KEY(id)
-);
-
 CREATE TABLE IF NOT EXISTS products(
     id INT AUTO_INCREMENT,
     product_name VARCHAR(250) NOT NULL,
     product_quantity VARCHAR(250) NOT NULL,
     description VARCHAR(250) NOT NULL,
-    type_Id INT NOT NULL,
-    PRIMARY KEY(id),
-    FOREIGN KEY(type_Id) REFERENCES types(id)
+    PRIMARY KEY(id)
 );
