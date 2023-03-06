@@ -57,5 +57,26 @@ module.exports={
         }).catch((err)=>{
           res.status(500).send(err)
         })
-      }
+      },
+
+      GetUser:(req,res)=>{
+        const query=`select * from user where id="${req.params.id}"`
+        connection.query(query,(error,result)=>{
+          error ? res.status(500).send(error) : res.status(200).send(result)
+        })
+      },
+    
+       DeleteUser:(req,res)=>{
+        const query=`delete from user where id="${req.params.id}"`
+        connection.query(query,(error,result)=>{
+          error ? res.status(500).send(error) : res.status(200).send(result)
+        })
+      },
+       
+       UpdateUser:(req,res)=>{
+        const query = `UPDATE user SET userName="${req.body.userName}",userPhone="${req.body.phoneNumber}",userMail="${req.body.email}",userPassword="${passwordHashed}",confirmUserPassword="${passwordHashed}",role="${req.body.role}", photo=${req.body.photo} WHERE id="${req.params.id}"`;
+        connection.query(query, (error, result) => {
+          error ? res.status(500).send(error) : res.status(200).send('Update User OK');
+        });
+       }
 }

@@ -18,7 +18,7 @@ transpoter.verify(function(error,success){
     error? console.log(error) : console.log('server is ready to take recieve messages')
 })
 
-const nodemailer = async (req,res,next)=>{
+const nodemail = async (req,res,next)=>{
     var FullName = req.body.FullName
     var Email = req.body.Email
     var Subject = req.body.Subject
@@ -60,4 +60,4 @@ const nodemailer = async (req,res,next)=>{
         })
     })
 }
-module.exports={nodemailer}
+module.exports={nodemail}

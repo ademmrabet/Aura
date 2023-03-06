@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "telesignsdk": "^2.2.3"
+  }
+}
